@@ -1,24 +1,50 @@
-# README
+# We Need Muscle!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+筋トレを継続的にやっているが、重量が上がらない。筋肉がついた感がない。
+それらの問題は、食事に起因します。
+食事管理を適当にしていると、いくら筋トレをしても効果的に筋肉をつけるのは難しいです。
+このサイトは、自分の食事内容やサプリメント等の投稿を他人とシェアすることで、より効果的なボディメイクを行うことができます。
+基本機能として、食事内容の新規投稿やその投稿に対するコメントができます。
+また、他ユーザーの投稿に「いいね」や「フォロー」をすることができます。
+マイページには、投稿に基づいた食事内容を入力することができ、日々の食事内容を管理することができます。
+コメント（レビュー）機能については、コメント内容がポジティブ要素の強いものか、ネガティブ要素の強いものかを判定し、スコアリングすることができます。
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+トレーニングしている人同士で食事内容の投稿を共有することで、食事管理をサポートし、筋トレ効果を高めるサイト
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+私も筋トレをしていて、食事管理の重要性と難しさを感じているから
 
-* Database initialization
+### ターゲットユーザー
 
-* How to run the test suite
+ボディメイクしている方
+筋トレであまり成果が感じられない方
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+- 1 日が終わったときにその日の食事内容を記入（マイページ）
+- 献立を考えているとき
 
-* ...
+## 設計書
+
+### 機能一覧
+
+https://docs.google.com/spreadsheets/d/12PB1fxQaborREhhHE3czWXjQwhirstfaHboRhVc7Svk/edit?usp=sharing
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails 5.2.4.4
+- JS ライブラリ：jQuery
+
+## 使用素材
+
+- ぱくたそ　https://www.pakutaso.com/
+- Font Free http://fontfree.me/
+- designevo https://www.designevo.com/
+- お名前.com https://www.onamae.com/
