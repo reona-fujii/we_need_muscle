@@ -1,0 +1,28 @@
+<header class="navbar navbar-fixed-top" id="header">
+  <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <h2>
+        <%= link_to root_path, class: "nav-item" do %>ロゴ<% end %>
+      </h2>
+    </nav>
+    <nav class="navbar navbar-expand-lg">
+      <ul class="nav navbar-nav navbar-right">
+        <!--ログイン後のheader-->
+        <% if user_signed_in? %>
+          <li class="text-light">ようこそ、<%= current_user.last_name %>さん！</li>
+          <li class="mx-3"><%= link_to " 食事登録", new_food_regist_path, class: "fas fa-utensils nav-item" %></li>
+          <li class="mx-3"><%= link_to " 投稿一覧", post_foods_path, class: "fas fa-folder-open btn btn-light nav-item" %></li>
+          <li class="mx-3"><%= link_to " マイページ", my_page_path, class: "fas fa-user btn btn-light nav-item" %></li>
+          <li class="mx-3"><%= link_to " 新規投稿", new_post_food_path, class: "fas fa-pen-fancy btn btn-light nav-item" %></li>
+          <li class="mx-3"><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt btn btn-light nav-item" %></li>
+        <% else %>
+          <!--ログイン前のheader-->
+          <li class="mx-3"><%= link_to " About", about_path, class: "fas fa-file-alt nav-item" %></li>
+          <li class="mx-3"><%= link_to " 新規登録", new_user_registration_path, class: "fas fa-user-plus nav-item" %></li>
+          <li class="mx-3"><%= link_to " ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-item" %></li>
+          <li class="mx-3"><%= link_to " ゲストログイン", guest_path, class: "fas fa-user-check nav-item", method: :post %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
