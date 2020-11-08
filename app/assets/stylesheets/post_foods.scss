@@ -7,8 +7,12 @@
   padding-bottom: 0;
   padding-top: 10px;
 }
-table{
+#table_index {
   width: 250px;
+  table-layout: fixed;
+}
+#table_show {
+  width: 400px;
   table-layout: fixed;
 }
 #post_food_flame {
@@ -24,4 +28,10 @@ table{
 }
 .pagination {
   justify-content: center;
+}
+#introduction {
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }

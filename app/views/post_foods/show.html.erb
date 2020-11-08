@@ -1,2 +1,53 @@
-<h1>PostFoods#show</h1>
-<p>Find me in app/views/post_foods/show.html.erb</p>
+<div class="container">
+  <h2 class="my-5"><%= @post_food.name %></h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to users_show_path(@post_food.user), class: "text-left px-0" do %>
+      <%= @post_food.user.last_name %>さんの投稿
+      <% end %>
+      <div>
+        <%= attachment_image_tag @post_food, :food_image, size: "400x350", fallback: "No_Image.jpg", style: "border-radius: 20px;" %>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class ="my-5">
+        <%= link_to '食事登録に追加する', food_regist_cart_index_path, method: :post, class: "btn btn-info d-block btn-lg" %>
+      </div>
+      <div>
+        <h6 class ="mt-3">＜1食あたり＞</h6>
+        <table class="table-bordered" id="table_show">
+          <thead>
+            <tr>
+              <th class="text-center table-success">カロリー</th>
+              <td class="text-center bg-light"><%= @post_food.calorie %></td>
+            </tr>
+            <tr>
+              <th class="text-center table-success">たんぱく質</th>
+              <td class="text-center bg-light"><%= @post_food.protain %></td>
+            </tr>
+            <tr>
+              <th class="text-center table-success">脂質</th>
+              <td class="text-center bg-light"><%= @post_food.fat %></td>
+            </tr>
+            <tr>
+              <th class="text-center table-success">炭水化物</th>
+              <td class="text-center bg-light"><%= @post_food.carbon %></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="mt-5">
+        <%= link_to '編集する', edit_post_food_path(@post_food), class: "btn btn-success mx-5" %>
+        <%= link_to '投稿を削除する', post_food_path(@post_food), method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+  <div class ="row d-block mt-4">
+    <div class="col-sm-6">
+      <h5>説明文</h5>
+      <div id="introduction">
+        <%= @post_food.introduction %>
+      </div>
+    </div>
+  </div>
+</div>

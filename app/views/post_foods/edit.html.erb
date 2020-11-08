@@ -1,2 +1,43 @@
-<h1>PostFoods#edit</h1>
-<p>Find me in app/views/post_foods/edit.html.erb</p>
+<div class="container">
+  <div class="mx-auto">
+    <h2 class="my-5">投稿食事編集</h2>
+    <div class = "form-horizontal">
+      <%= form_with model:@post_food, local: true do |f| %>
+      <div class = "form-group row">
+        <%= f.label :food_image, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.attachment_field :food_image, class: "col-sm-3 control-label text-right" %>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :name, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control col-sm-5", rows:"5" %>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :introduction, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_area :introduction, autofocus: true, class: "form-control col-sm-5" %>
+      </div>
+      <div class = "row my-4">
+        <h5 class = "offset-sm-3">＜1食あたり＞</h5>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :calorie, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_field :calorie, autofocus: true, class: "form-control col-sm-1" %><span id="unit">　kcal</span>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :protain, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_field :protain, autofocus: true, class: "form-control col-sm-1" %><span id="unit">　g</span>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :fat, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_field :fat, autofocus: true, class: "form-control col-sm-1" %><span id = "unit">　g</span>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :carbon, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_field :carbon, autofocus: true, class: "form-control col-sm-1" %><span id = "unit">　g</span>
+      </div>
+      <div class = "row mt-5">
+        <%= f.submit '更新する', class: "btn btn-success d-block mx-auto btn-lg" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
