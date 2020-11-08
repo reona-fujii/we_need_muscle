@@ -1,3 +1,27 @@
 // Place all the styles related to the post_foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#unit {
+  padding-bottom: 0;
+  padding-top: 10px;
+}
+table{
+  width: 250px;
+  table-layout: fixed;
+}
+#post_food_flame {
+  background-color: #f0f8ff;
+  filter: drop-shadow(0 0 5px #6ac521);
+  margin-left: 50px;
+  margin-bottom: 50px;
+  max-width: 300px;
+}
+#sort-var {
+  background-color: #f0f8ff;
+  border-radius: 20px;
+}
+.pagination {
+  justify-content: center;
+}

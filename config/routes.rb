@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   get 'about', to: 'homes#about'
   post 'guest', to: 'homes#new_guest'
 
+  get 'search', to: 'searches#search'
+
 end

@@ -1,4 +1,5 @@
 <div class="container">
-  <h2 class="my-5"><%= @user.last_name %>さん投稿一覧</h2>
+  <h2 class="my-5">検索結果一覧</h2>
+  <%= render "searches/form" %>
   <%= render "post_foods/index", post_foods: @post_foods %>
 </div>
