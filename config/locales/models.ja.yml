@@ -8,3 +8,11 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      post_food:
+        name: 食事名
+        food_image: イメージ画像
+        introduction: 説明文
+        calorie: カロリー
+        protain: たんぱく質
+        fat: 脂質
+        carbon: 炭水化物
