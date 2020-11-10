@@ -6,6 +6,10 @@ class PostFood < ApplicationRecord
   has_many :food_regist_shows, dependent: :destroy
   attachment :food_image
 
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
   def self.search(word)
     self.where(['name LIKE ?', "%#{word}%"])
   end

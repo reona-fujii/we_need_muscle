@@ -8,6 +8,7 @@ class PostFoodsController < ApplicationController
 
   def show
     @post_food = PostFood.find(params[:id])
+    @food_comment = FoodComment.new
   end
 
   def new

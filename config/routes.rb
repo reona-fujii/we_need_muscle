@@ -32,5 +32,6 @@ Rails.application.routes.draw do
   post 'guest', to: 'homes#new_guest'
 
   get 'search', to: 'searches#search'
+  get 'favorites', to: 'favorites#index'
 
 end

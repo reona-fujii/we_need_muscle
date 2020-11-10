@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :food_regist_carts, dependent: :destroy
   has_many :post_foods
   has_many :food_regists, dependent: :destroy
+  attachment :profile_image
 
   def self.search(word)
     self.where(['last_name LIKE ? OR first_name LIKE ? ', "%#{word}%", "%#{word}%"])
