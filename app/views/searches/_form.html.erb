@@ -10,6 +10,6 @@
     <%= link_to users_show_path(current_user), class: "btn btn-primary btn-lg" do %>自分の投稿を見る<% end %>
   </div>
   <div class ="col-md-3">
-    <h6>お気に入りソート</h6>
+    <%= link_to favorites_path, class: "btn btn-primary btn-lg" do %><i class="fas fa-star"></i>お気に入り投稿を見る<% end %>
   </div>
 </div>

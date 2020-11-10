@@ -46,3 +46,10 @@ body {
     @extend .is-invalid;
   }
 }
+
+#logo {
+  width: 120px;
+  height: 70px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}

@@ -16,3 +16,5 @@ ja:
         protain: たんぱく質
         fat: 脂質
         carbon: 炭水化物
+      food_comment:
+        rate: 評価

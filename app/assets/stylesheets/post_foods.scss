@@ -29,9 +29,20 @@
 .pagination {
   justify-content: center;
 }
-#introduction {
-  color: #5d627b;
-  background: white;
-  border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+.introduction {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #00BCD4;
+  background: #e4fcff;
+  border-top: solid 6px #1dc1d6;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  width: 50%;
+}
+.introduction p {
+  margin: 0;
+  padding: 0;
+}
+.favorite-btn {
+  display: block;
+  margin: 0 0 0 auto;
 }
