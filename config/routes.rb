@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #ユーザー
   get 'users/my_page', to: 'users#my_page', as: 'my_page'
+  get 'users/my_page_edit', to: 'users#my_page_edit'
   get 'users/:id', to: 'users#show', as: 'users_show'
-  get 'users/edit', to: 'users#edit'
-  patch 'users', to: 'users#update'
-  put 'users', to: 'users#update'
+  patch 'users/update', to: 'users#update'
+  put 'users/update', to: 'users#update'
   delete 'users', to: 'users#destroy'
 
   #投稿食事

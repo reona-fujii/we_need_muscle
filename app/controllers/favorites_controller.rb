@@ -1,8 +1,8 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorites = Favorite.where(user_id: current_user.id)
-    @post_foods = PostFood.where(id: @favorites).page(params[:page]).per(9)
+    my_favorite_food_ids = Favorite.where(user_id: current_user.id).pluck(:post_food_id)
+    @post_foods = PostFood.where(id: my_favorite_food_ids).page(params[:page]).per(9)
   end
 
   def create

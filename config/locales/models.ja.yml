@@ -5,9 +5,19 @@ ja:
         last_name: 姓
         first_name: 名
         email: メールアドレス
+        profile_image: プロフィール画像
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+        sex: 性別
+        weight: 体重
+        height: 身長
+        exercise: 運動頻度
+        age: 年齢
+        calorie: 消費カロリー
+        protain: たんぱく質
+        fat: 脂質
+        carbon: 炭水化物
       post_food:
         name: 食事名
         food_image: イメージ画像
@@ -18,3 +28,4 @@ ja:
         carbon: 炭水化物
       food_comment:
         rate: 評価
+        comment: コメント

@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 /*!
  * Raty - A Star Rating Plugin
  *
