@@ -3,6 +3,7 @@
     <h2 class="my-5">新規投稿</h2>
     <div class = "form-horizontal">
       <%= form_with model:@post_food, local: true do |f| %>
+      <%= render "layouts/errors", resource: @post_food %>
       <div class = "form-group row">
         <%= f.label :food_image, class: "col-sm-3 control-label text-right offset-sm-1" %>
         <%= f.attachment_field :food_image, class: "col-sm-3 control-label text-right" %>

@@ -1,0 +1,86 @@
+<div class ="container">
+  <div class="mx-auto">
+    <h2 class="my-5">プロフィール編集</h2>
+      <div class = "form-horizontal">
+      <%= form_with model:@user, url: users_update_path, local: true do |f| %>
+      <%= render "layouts/errors", resource: @user %>
+      <div class = "form-group row">
+        <%= f.label :profile_image, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.attachment_field :profile_image, class: "col-sm-3 control-label text-right" %>
+      </div>
+      <div class="form-group row">
+        <%= f.label :last_name, class: "col-sm-3 control-label text-right offset-sm-1" %><br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control col-sm-2" %>
+
+        <%= f.label :first_name, class: "col-sm-1 control-label text-right" %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control col-sm-2" %>
+      </div>
+      <div class = "form-group row">
+        <%= f.label :email, class: "col-sm-3 control-label text-right offset-sm-1" %>
+        <%= f.text_field :email, autofocus: true, class: "form-control col-sm-5" %>
+      </div>
+    <h5 class="my-5">1日の消費カロリーとマクロ栄養素の設定について</h5>
+<!--設定しないフォーム-->
+    <div class ="row">
+      <div class="form-group col-sm-2">
+        <div>
+          <%= radio_button_tag :select_setting, 0, :checked => true %>
+          <label class="form-check-label" for="exampleRadios1">設定しない</label>
+        </div>
+      </div>
+<!--自動で設定するフォーム-->
+      <div class="form-group col-sm-4 auto-set mr-3">
+        <%= radio_button_tag :select_setting, 1 %>
+        <label class="form-check-label mb-4" for="exampleRadios1">自動で設定する</label>
+        <div>
+          <%= f.label :sex %>
+          <%= f.radio_button :sex, "男性" %>男性
+          <%= f.radio_button :sex, "女性" %>女性
+          <%= f.radio_button :sex, "その他" %>その他
+        </div>
+        <div class ="d-flex my-3">
+          <%= f.label :weight, class: "control-label text-right" %>
+          <%= f.text_field :weight, class: "form-control col-sm-3 ml-5" %><span id="unit">　kg</span>
+        </div>
+        <div class ="d-flex mb-3">
+          <%= f.label :height, class: "control-label" %>
+          <%= f.text_field :height, class: "form-control col-sm-3 ml-5" %><span id="unit">　cm</span>
+        </div>
+        <div class ="d-flex mb-3">
+          <%= f.label :exercise, class: "control-label mr-2" %>
+          <%= f.select :exercise, User.exercises.keys, {"なにもしていない": 0, "週に1〜2回": 1, "週に2〜3回": 2, "週に3〜5": 3, "毎日": 4}, value: @user.exercise %>
+        </div>
+        <div class ="d-flex">
+          <%= f.label :age, class: "control-label" %>
+          <%= f.text_field :age, class: "form-control col-sm-3 ml-5" %><span id="unit">　歳</span>
+        </div>
+      </div>
+<!--自分で設定するフォーム-->
+      <div class="form-group col-sm-4 manual-set">
+         <%= radio_button_tag :select_setting, 2 %>
+         <label class="form-check-label mb-4" for="exampleRadios1">自分で設定する</label>
+         <div class ="d-flex my-3">
+          <%= f.label :calorie, class: "control-label mr-2" %>
+          <%= f.text_field :calorie, class: "form-control col-sm-3" %><span id="unit">　kcal</span>
+        </div>
+        <div class ="d-flex my-3">
+          <%= f.label :protain, class: "control-label mr-4" %>
+          <%= f.text_field :protain, class: "form-control col-sm-3" %><span id="unit">　g</span>
+        </div>
+        <div class ="d-flex my-3">
+          <%= f.label :fat, class: "control-label mr-5" %>
+          <%= f.text_field :fat, class: "form-control col-sm-3 ml-4" %><span id="unit">　g</span>
+        </div>
+        <div class ="d-flex my-3">
+          <%= f.label :carbon, class: "control-label mr-4" %>
+          <%= f.text_field :carbon, class: "form-control col-sm-3 ml-3" %><span id="unit">　g</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "row mt-5">
+    <%= f.submit '更新する', class: "btn btn-success d-block mx-auto btn-lg" %>
+  </div>
+  <% end %>
+  </div>
+</div>

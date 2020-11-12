@@ -4,8 +4,14 @@ class FoodCommentsController < ApplicationController
     post_food = PostFood.find(params[:post_food_id])
     comment = current_user.food_comments.new(food_comment_params)
     comment.post_food_id = post_food.id
-    comment.save
-    redirect_to post_food_path(post_food)
+    if comment.save
+      redirect_to post_food_path(post_food)
+    else
+      @post_food = PostFood.find(params[:post_food_id])
+      @food_comment = FoodComment.new
+      @error_food_comment = comment
+      render 'post_foods/show'
+    end
   end
 
   def destroy

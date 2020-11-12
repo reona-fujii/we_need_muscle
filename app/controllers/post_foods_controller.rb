@@ -18,8 +18,11 @@ class PostFoodsController < ApplicationController
   def create
     @post_food = PostFood.new(post_food_params)
     @post_food.user_id = current_user.id
-    @post_food.save
-    redirect_to post_foods_path
+    if @post_food.save
+      redirect_to post_foods_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -28,8 +31,11 @@ class PostFoodsController < ApplicationController
 
   def update
     @post_food = PostFood.find(params[:id])
-    @post_food.update(post_food_params)
-    redirect_to post_food_path(@post_food)
+    if @post_food.update(post_food_params)
+      redirect_to post_food_path(@post_food)
+    else
+      render :edit
+    end
   end
 
   def destroy
