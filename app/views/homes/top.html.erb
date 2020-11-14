@@ -1,0 +1,68 @@
+<div class="conatainer">
+  <div class="row mx-auto d-block" style="width: 80%;">
+<!--タイトル-->
+    <div class="top-title text-center my-5">We Need Muscle !!</div>
+<!--紹介文-->
+    <session class="d-flex mt-5 session1">
+      <%= image_tag 'top1.png', class: "top-image" %>
+      <div class="mx-auto top-text my-auto">
+        <ul class="mx-auto">
+          <li>筋トレしても重量が伸びない...</li>
+          <li>筋肉がついた感じがしない...</li>
+          <li>増量や減量がうまくいかない...</li>
+        </ul>
+        <span style="background: linear-gradient(transparent 50%, yellow 50%);">それらの原因は、食事にあります。</span></br>
+        <span>そのため、いくら筋トレしても効果的に筋肉をつけることは難しいです。</span>
+      </div>
+    </session>
+    <session class="d-flex mt-5 session2">
+      <div class="mx-auto top-text my-auto">
+        <div>We Need Muscle !!は、</div>
+        <div class="mt-4">ユーザー同士で食事内容を投稿し、共有することで</div>
+        <span class="mb-4" style="background: linear-gradient(transparent 50%, yellow 50%);">より効果的なボディメイクをサポートします。</span>
+        <div class="mt-4">マイページで日々の食事を管理することができ、</div>
+        <span style="background: linear-gradient(transparent 50%, yellow 50%);">理想のボディにコミットします。</span>
+      </div>
+      <%= image_tag 'top2.png', class: "top-image" %>
+    </session>
+    <div class="text-center my-5">
+      <%= link_to "今すぐ新規登録", new_user_registration_path, class: "btn btn-success btn-lg" %>
+    </div>
+<!--基本機能紹介-->
+    <div class="text-center my-5">基本機能紹介</div>
+      <div class="d-flex my-5" style="justify-content: center">
+        <div class="col-sm-5 mr-5 basic-function-box">
+          <span style="font-size: 40px; color: #FF69A3;">1.  </span><span class="basic-function-title"> 食事内容の投稿とシェア</span>
+          <div>投稿をシェアすることで、今まで知らなかったトレーニング飯に</br>出会えるかも…</div>
+        </div>
+        <div class="col-sm-5 basic-function-box">
+          <span style="font-size: 40px; color: #FF69A3;">2.  </span><span class="basic-function-title"> お気に入りとコメント</span>
+          <div>気に入った食事投稿は、お気に入りとしてストックできます。</div>
+          <div>投稿に対して、コメントや評価をつけることができます。</div>
+        </div>
+      </div>
+      <div class="d-flex my-5" style="justify-content: center">
+        <div class="col-sm-5 mr-5 basic-function-box">
+          <span style="font-size: 40px; color: #FF69A3;">3.  </span><span class="basic-function-title"> 検索機能</span>
+          <div>全ての投稿食事から希望の食事内容をピックアップできます。</div>
+        </div>
+        <div class="col-sm-5 basic-function-box">
+          <span style="font-size: 40px; color: #FF69A3;">4.  </span><span class="basic-function-title"> マイページで食事管理</span>
+          <div>毎日の食事をカロリーとマクロ栄養素で管理できます。</div>
+        </div>
+      </div>
+      <div class="d-flex my-5" style="justify-content: center">
+        <div class="col-sm-5 mr-5 basic-function-box">
+          <span style="font-size: 40px; color: #FF69A3;">5.  </span><span class="basic-function-title">カレンダー機能</span>
+          <div>マイページにはカレンダーがあり、その日の合計カロリーが</br>一目でわかります。</div>
+        </div>
+        <div class="col-sm-5 basic-function-box">
+          <span style="font-size: 40px; color: #FF69A3;">6.  </span><span class="basic-function-title">1日の消費カロリーや目標値の設定</span>
+          <div>ユーザーの詳細登録をしていただくことで、1日の消費カロリーと</br>マクロ栄養素の目標値を表示できます。</div>
+        </div>
+      </div>
+      <div class="text-center my-5">
+      <%= link_to "今すぐ新規登録", new_user_registration_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+</div>

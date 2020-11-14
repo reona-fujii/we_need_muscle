@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   #食事登録カート
   delete 'food_regist_carts/destroy_all', to: 'food_regist_carts#destroy_all', as: 'food_regist_carts_destroy_all'
-  resources :food_regist_cart, only: [:create, :destroy]
+  resources :food_regist_carts, only: [:create, :destroy]
 
   #ホーム
   root 'homes#top'
