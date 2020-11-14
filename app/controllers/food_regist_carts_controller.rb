@@ -1,5 +1,5 @@
 class FoodRegistCartsController < ApplicationController
-  
+
   def create
     @food_regist_cart = FoodRegistCart.new(food_regist_cart_params)
     @food_regist_cart.user_id = current_user.id
@@ -9,10 +9,10 @@ class FoodRegistCartsController < ApplicationController
 
   def destroy
   end
-  
+
   def destroy_all
   end
-  
+
   private
   def food_regist_cart_params
     params.require(:food_regist_cart).permit(:post_food_id)

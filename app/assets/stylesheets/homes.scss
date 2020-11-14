@@ -1,3 +1,51 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+  font-family: 'MATURASC';
+  src: font-url('/assets/MATURASC_1.truetype'),
+       font-url('/assets/MATURASC_1.woff');
+}
+
+.top-title {
+  font-family: 'MATURASC';
+  font-size: 100px;
+}
+
+.top-image {
+  width: 400px;
+  height: 400px;
+}
+
+.top-text {
+  font-size: 22px;
+  align-item: center;
+  font-weight: bold;
+}
+
+.session1 {
+  background-color: #D7EEFF;
+  border-radius: 20px;
+}
+
+.session2 {
+  background-color: #FFFFCC;
+  border-radius: 20px;
+}
+
+.basic-function-box {
+  justify-content: center;
+  background-color: #CCFFCC;
+  border-radius: 20px;
+  padding: 30px 70px 30px 70px;
+}
+
+.basic-function-title {
+  background: linear-gradient(transparent 50%, yellow 50%);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.btn {
+  background: linear-gradient(to right, green, orange);
+}
