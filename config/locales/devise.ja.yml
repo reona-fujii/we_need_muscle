@@ -60,3 +60,4 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
       blank: "を入力してください"
       record_invalid: 'バリデーションに失敗しました: %{errors}'
+      not_a_number: "は数値で入力してください。"

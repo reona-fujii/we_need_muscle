@@ -1,9 +1,30 @@
 <div class="container">
   <div class="mx-auto">
     <h2 class="my-5">食事登録</h2>
-
-
-    <table>
+    <% unless @food_regist_carts.present? %>
+      <h3>現在登録された食事はありません。</h3>
+    <% else %>
+    <%= form_with(model:@food_regist, url: food_regists_path, local: true) do |f| %>
+<!--日付入力欄-->
+    <div class="d-flex my-5">
+      <div class ="w-25">
+        <%= f.label :day, class: 'control-label' %>
+        <%= f.date_field :day, class: 'form-control' %>
+      </div>
+<!--タイミング入力欄-->
+      <div class="ml-5">
+        <%= f.label :timing, class: 'control-label d-block' %>
+        <span class="mr-3"><%= f.radio_button :timing, '朝食' %>朝食</span>
+        <span class="mr-3"><%= f.radio_button :timing, '昼食' %>昼食</span>
+        <span class="mr-3"><%= f.radio_button :timing, '夕食' %>夕食</span>
+        <span class="mr-3"><%= f.radio_button :timing, '間食' %>間食</span>
+      </div>
+      <div class="ml-auto mt-5">
+        <%= link_to '全て削除', food_regist_carts_destroy_all_path, method: :delete, class: "btn btn-danger pull-right" %>
+      </div>
+    </div>
+<!--食事内容の詳細表示-->
+    <table class='table text-center table-bordered'>
       <thead>
         <tr>
           <td></td>
@@ -14,19 +35,39 @@
           <td></td>
         </tr>
       </thead>
-      <%= @food_regist_carts.each do |food_regist_cart| %>
+      <% @food_regist_carts.each do |food_regist_cart| %>
       <tbody>
         <tr>
-          <td></td>
+          <td class="text-left"><%= food_regist_cart.post_food.name %></td>
           <td><%= food_regist_cart.post_food.calorie %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= food_regist_cart.post_food.protain %></td>
+          <td><%= food_regist_cart.post_food.fat %></td>
+          <td><%= food_regist_cart.post_food.carbon %></td>
+          <td><%= link_to '削除', food_regist_cart_path(food_regist_cart), method: :delete, class: "btn btn-danger" %></td>
+          <% end %>
         </tr>
+        <tfoot>
+          <tr>
+            <td>合計</td>
+            <td>
+              <%= @food_regist_carts.aggregate(:calorie) %>
+            </td>
+            <td>
+              <%= @food_regist_carts.aggregate(:protain) %>
+            </td>
+            <td>
+              <%= @food_regist_carts.aggregate(:fat) %>
+            </td>
+            <td>
+              <%= @food_regist_carts.aggregate(:carbon) %>
+            </td>
+            <td></td>
+          </tr>
+        </tfoot>
       </tbody>
-      <% end %>
     </table>
-
+    <%= f.submit '登録を確定する', class: "btn btn-success d-block mx-auto btn-lg my-5" %>
+    <% end %>
+  <% end %>
   </div>
 </div>
