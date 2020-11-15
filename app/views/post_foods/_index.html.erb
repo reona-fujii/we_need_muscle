@@ -32,7 +32,10 @@
       </thead>
     </table>
     <div class ="my-2">
-      <%= link_to '食事登録に追加する', food_regist_carts_path, method: :post, class: "btn btn-info d-block mx-auto btn-lg" %>
+      <%= form_for (@food_regist_cart) do |f| %>
+      <%= f.hidden_field :post_food_id, :value => post_food.id %>
+      <%= f.submit '食事登録に追加する', class: "btn btn-info d-block btn-lg mx-auto" %>
+      <% end %>
     </div>
   </div>
   <% end %>

@@ -29,3 +29,6 @@ ja:
       food_comment:
         rate: 評価
         comment: コメント
+      food_regist:
+        day: 日付
+        timing: どのタイミング?

@@ -4,11 +4,13 @@ class PostFoodsController < ApplicationController
 
   def index
     @post_foods = PostFood.page(params[:page]).reverse_order
+    @food_regist_cart = FoodRegistCart.new
   end
 
   def show
     @post_food = PostFood.find(params[:id])
     @food_comment = FoodComment.new
+    @food_regist_cart = FoodRegistCart.new
   end
 
   def new

@@ -31,12 +31,18 @@ body {
 #footer {
   bottom: 0;
   width: 100%;
-  background-color: #78FF94;
+  background: linear-gradient(45deg, white, white);
+  box-shadow: 0px -9px 3px -3px rgba(0,0,0,0.6);
   position: absolute;
 }
 #header {
-  background-color: #78FF94;
+  background: linear-gradient(45deg, white, white);
+  // position: sticky;
+  // position: -webkit-sticky;
+  // top: 0;
+  box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
 }
+
 .nav-item:hover {
   text-decoration: none;
 }
@@ -52,4 +58,23 @@ body {
   height: 70px;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+.header-btn {
+  color: #1B1B1B;
+	background: #fff;
+	border: 1px solid #fff;
+	width: 170px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+}
+.header-btn:hover {
+	 background: #F2F2F2;
+	 cursor: pointer;
+	 text-decoration: none;
+}
+
+#error_explanation {
+  color: red;
 }
