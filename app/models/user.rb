@@ -33,6 +33,7 @@ class User < ApplicationRecord
   enum exercise: {なにもしていない:0, 週に1〜2回:1, 週に2〜3回:2, 週に3〜5回:3, 毎日:4}
   enum sex: {男性:0, 女性:1, その他:2}
 
+
   def self.search(word)
     self.where(['last_name LIKE ? OR first_name LIKE ? ', "%#{word}%", "%#{word}%"])
   end

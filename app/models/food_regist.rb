@@ -7,4 +7,12 @@ class FoodRegist < ApplicationRecord
 
   enum timing: {朝食:0, 昼食:1, 夕食:2, 間食:3}
 
+  def self.aggregate(column)
+    self.all.map { |food_regists| food_regist.post_food[column] }.sum
+  end
+
+  def start_time
+    self.day
+  end
+
 end

@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -64,7 +65,7 @@ body {
   color: #1B1B1B;
 	background: #fff;
 	border: 1px solid #fff;
-	width: 170px;
+	width: 150px;
 	padding: 0.8em;
 	text-align: center;
 	text-decoration: none;
@@ -77,4 +78,9 @@ body {
 
 #error_explanation {
   color: red;
+}
+#page-title {
+  padding: 1rem 2rem;
+  border-left: 5px solid #000;
+  background: #f4f4f4;
 }
