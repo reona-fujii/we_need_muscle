@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
 
+  # 検索機能
   def search
     @range = params[:range]
     word = params[:word]

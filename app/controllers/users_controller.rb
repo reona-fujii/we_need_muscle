@@ -2,18 +2,25 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, {only: [:edit, :destroy]}
 
+  # マイページ画面
   def my_page
+    @food_regists = FoodRegist.where(user_id: current_user)
+    food_regist = FoodRegist.where(day: Date.today, user_id: current_user).pluck(:id)
+    @food_regist_shows = FoodRegistShow.where(food_regist_id: food_regist)
   end
 
+  # 特定のユーザーの投稿食事一覧画面
   def show
     @user = User.find(params[:id])
     @post_foods = PostFood.where(user_id: params[:id]).page(params[:page]).reverse_order
   end
 
+  # マイページ編集画面
   def my_page_edit
     @user = current_user
   end
 
+  # マイページ編集を更新する
   def update
     @user = current_user
     if params[:select_setting] == '0'
@@ -66,9 +73,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # 退会する
   def destroy
   end
 
+  # ユーザー認証
   def ensure_correct_user
     @user = User.find(params[:id])
     if current_user.id != @user.id

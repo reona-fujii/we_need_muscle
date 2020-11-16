@@ -1,5 +1,6 @@
 class FoodCommentsController < ApplicationController
 
+  # コメントを投稿する
   def create
     post_food = PostFood.find(params[:post_food_id])
     comment = current_user.food_comments.new(food_comment_params)
@@ -14,6 +15,7 @@ class FoodCommentsController < ApplicationController
     end
   end
 
+  # コメントを削除する
   def destroy
     FoodComment.find_by(id: params[:id], post_food_id: params[:post_food_id]).destroy
     redirect_to post_food_path(params[:post_food_id])

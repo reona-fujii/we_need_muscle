@@ -1,6 +1,9 @@
 <div class="container">
   <div class="mx-auto">
-    <h2 class="my-5">食事登録</h2>
+    <h2 class="my-5" id="page-title">食事登録</h2>
+    <% if @error_food_regist %>
+      <%= render 'layouts/errors', resource: @error_food_regist %>
+    <% end %>
     <% unless @food_regist_carts.present? %>
       <h3>現在登録された食事はありません。</h3>
     <% else %>
