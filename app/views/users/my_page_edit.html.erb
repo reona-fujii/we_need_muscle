@@ -24,14 +24,12 @@
     <div class ="row">
       <div class="form-group col-sm-2">
         <div>
-          <%= radio_button_tag :select_setting, 0, :checked => true %>
-          <label class="form-check-label" for="exampleRadios1">設定しない</label>
+          <%= f.radio_button :select_setting, "設定しない" %>設定しない
         </div>
       </div>
 <!--自動で設定するフォーム-->
       <div class="form-group col-sm-4 auto-set mr-3">
-        <%= radio_button_tag :select_setting, 1 %>
-        <label class="form-check-label mb-4" for="exampleRadios1">自動で設定する</label>
+        <%= f.radio_button :select_setting, "自動で設定する" %>自動で設定する
         <div>
           <%= f.label :sex %>
           <%= f.radio_button :sex, "男性" %>男性
@@ -57,8 +55,7 @@
       </div>
 <!--自分で設定するフォーム-->
       <div class="form-group col-sm-4 manual-set">
-         <%= radio_button_tag :select_setting, 2 %>
-         <label class="form-check-label mb-4" for="exampleRadios1">自分で設定する</label>
+         <%= f.radio_button :select_setting, "自分で設定する" %>自分で設定する
          <div class ="d-flex my-3">
           <%= f.label :calorie, class: "control-label mr-2" %>
           <%= f.text_field :calorie, class: "form-control col-sm-3" %><span id="unit">　kcal</span>
