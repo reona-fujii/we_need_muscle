@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #ユーザー
   get 'users/my_page', to: 'users#my_page', as: 'my_page'
   get 'users/my_page_edit', to: 'users#my_page_edit'
+  get 'users/my_page_show', to: 'users#my_page_show'
   get 'users/:id', to: 'users#show', as: 'users_show'
   patch 'users/update', to: 'users#update'
   put 'users/update', to: 'users#update'
@@ -24,11 +25,10 @@ Rails.application.routes.draw do
   #食事登録詳細
     resources :food_regist_shows, only: [:destroy]
   end
+
   #食事登録カート
   delete 'food_regist_carts/destroy_all', to: 'food_regist_carts#destroy_all', as: 'food_regist_carts_destroy_all'
   resources :food_regist_carts, only: [:create, :destroy]
-
-
 
   #ホーム
   root 'homes#top'
