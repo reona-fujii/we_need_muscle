@@ -31,10 +31,6 @@
 
 ## 設計書
 
-### 機能一覧
-
-https://docs.google.com/spreadsheets/d/12PB1fxQaborREhhHE3czWXjQwhirstfaHboRhVc7Svk/edit?usp=sharing
-
 ## 開発環境
 
 - OS：Linux(CentOS)
@@ -43,9 +39,48 @@ https://docs.google.com/spreadsheets/d/12PB1fxQaborREhhHE3czWXjQwhirstfaHboRhVc7
 - JS ライブラリ：jQuery
 - IDE：Cloud9
 
+## 使用技術（gem等）
+
+- pry-byebug
+- devise
+- enum_help
+- bootstrap4
+- jquery-rails
+- refile
+- refile-mini_magick
+- kaminari
+- simple_calendar
+- dotenv-rails
+
+主な機能
+- ユーザー登録機能
+　- ログイン、ログアウト、新規登録
+　- プロフィール編集、パスワード変更、退会
+- 食事投稿機能
+　- 新規投稿、編集、削除
+- コメント機能
+　- 新規投稿、削除
+- レビュー機能
+- お気に入り機能
+- カレンダー機能
+- 検索機能（ユーザー、投稿）
+- 画像拡大機能
+- 非同期通信
+　- コメントの投稿と削除
+　- お気に入りの追加と削除
+
+### 機能一覧
+
+https://docs.google.com/spreadsheets/d/12PB1fxQaborREhhHE3czWXjQwhirstfaHboRhVc7Svk/edit?usp=sharing
+
 ## 使用素材
 
 - ぱくたそ　https://www.pakutaso.com/
 - Font Free http://fontfree.me/
 - designevo https://www.designevo.com/
 - お名前.com https://www.onamae.com/
+- ICOON MONO
+- O-DAN
+
+## jQueryプラグイン
+lightbox2

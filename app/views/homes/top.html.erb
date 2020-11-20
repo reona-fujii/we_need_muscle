@@ -1,10 +1,10 @@
+<div class="top-background"></div>
+<div class="top-title text-center my-5">We Need Muscle !!</div>
 <div class="conatainer">
   <div class="row mx-auto d-block" style="width: 80%;">
-<!--タイトル-->
-    <div class="top-title text-center my-5">We Need Muscle !!</div>
 <!--紹介文-->
-    <div class="text-center" style="font-size: 40px; font-weight: bold">We Need Muscleでは、こんな悩みを解決します。</div>
-    <session class="d-flex mt-2 session1">
+    <div class="text-center" style="font-size: 40px; font-weight: bold; margin-top: 200px;">We Need Muscleでは、こんな悩みを解決します。</div>
+    <session class="d-flex mt-5 session1">
       <%= image_tag 'top1.png', class: "top-image" %>
       <div class="mx-auto top-text my-auto">
         <ul class="mx-auto">
@@ -16,13 +16,16 @@
         <span>そのため、いくら筋トレしても効果的に筋肉をつけることは難しいです。</span>
       </div>
     </session>
-    <div class="text-center" style="font-size: 40px; font-weight: bold; margin-top: 100px;">We Need Muscleにできること</div>
-    <session class="d-flex mt-2 session2">
+    <div class="text-center" style="font-size: 40px; font-weight: bold; margin-top: 200px;">We Need Muscleにできること</div>
+    <session class="d-flex mt-5 session2">
       <div class="mx-auto top-text my-auto">
         <div class="mt-4">ユーザー同士で食事内容を投稿し、共有することで</div>
         <span class="mb-4" style="background: linear-gradient(transparent 50%, yellow 50%);">より効果的なボディメイクをサポートします。</span>
         <div class="mt-4">マイページで日々の食事を管理することができ、</div>
         <span style="background: linear-gradient(transparent 50%, yellow 50%);">理想のボディにコミットします。</span>
+        <div class="mt-4">
+          <%= link_to 'もっと詳しく', about_path %>
+        </div>
       </div>
       <%= image_tag 'top2.png', class: "top-image" %>
     </session>

@@ -4,8 +4,10 @@ class UsersController < ApplicationController
 
   # マイページ画面
   def my_page
+    @weight_regist = WeightRegist.new
     # カレンダーの定義
     @callender_food_regists = FoodRegist.where(user_id: current_user)
+    @callender_weight_regists = WeightRegist.where(user_id: current_user)
     #今日の日付
     @day_params = Date.today
     # 今日の食事内容のレコード定義
@@ -15,15 +17,18 @@ class UsersController < ApplicationController
     @food_regist_shows = FoodRegistShow.where(food_regist_id: food_regist)
   end
 
+  # 特定の日のマイページ画面
   def my_page_show
+    @weight_regist = WeightRegist.new
     #カレンダーの定義
     @callender_food_regists = FoodRegist.where(user_id: current_user)
+    @callender_weight_regists = WeightRegist.where(user_id: current_user)
     #押下されたカレンダーの日付
     @day_params = params[:format]
     # 特定の日の食事内容のレコード定義
-    @food_regists = FoodRegist.where(user_id: current_user, day: @params)
+    @food_regists = FoodRegist.where(user_id: current_user, day: @day_params)
     # 特定の日の食事内容の合計値レコードの定義
-    food_regist = FoodRegist.where(day: @params, user_id: current_user).pluck(:id)
+    food_regist = FoodRegist.where(day: @day_params, user_id: current_user).pluck(:id)
     @food_regist_shows = FoodRegistShow.where(food_regist_id: food_regist)
   end
 
@@ -31,6 +36,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post_foods = PostFood.where(user_id: params[:id]).page(params[:page]).reverse_order
+    @food_regist_cart = FoodRegistCart.new
   end
 
   # マイページ編集画面
@@ -41,7 +47,9 @@ class UsersController < ApplicationController
   # マイページ編集を更新する
   def update
     @user = current_user
-    if @user.select_setting == '設定しない'
+    @user.select_setting = user_params[:select_setting]
+    @user.save
+    if @user.select_setting == 'no_setting'
       selected_user_params = {
         last_name: user_params[:last_name],
         first_name: user_params[:first_name],
@@ -54,7 +62,7 @@ class UsersController < ApplicationController
       else
         render :my_page_edit
       end
-    elsif @user.select_setting == '自動で設定する'
+    elsif @user.select_setting == 'auto_setting'
       selected_user_params = {
         last_name: user_params[:last_name],
         first_name: user_params[:first_name],
@@ -73,7 +81,7 @@ class UsersController < ApplicationController
       else
         render :my_page_edit
       end
-    else @user.select_setting == '自分で設定する'
+    else @user.select_setting == 'manual_setting'
       selected_user_params = {
         last_name: user_params[:last_name],
         first_name: user_params[:first_name],

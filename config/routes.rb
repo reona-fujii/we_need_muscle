@@ -35,6 +35,10 @@ Rails.application.routes.draw do
   get 'about', to: 'homes#about'
   post 'guest', to: 'homes#new_guest'
 
+  # 体重登録
+  post 'weight_regist', to: 'weight_regists#create'
+  delete 'weight_regist', to: 'weight_regists#destroy'
+
   # 検索
   get 'search', to: 'searches#search'
 

@@ -1,5 +1,6 @@
 class FoodRegistsController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, {only: [:show, :edit, :update, :destroy]}
   # 食事登録画面
   def new
     @food_regist_carts = FoodRegistCart.where(user_id: current_user.id)
@@ -42,12 +43,20 @@ class FoodRegistsController < ApplicationController
   # 食事登録編集を更新する
   def update
     food_regist = FoodRegist.find(params[:id])
-    if food_regist.update(food_regist_params) 
+    if food_regist.update(food_regist_params)
       redirect_to my_page_path
     else
       @food_regist = FoodRegist.find(params[:id])
       @food_regist_shows = FoodRegistShow.where(food_regist_id: @food_regist.id)
       render :edit
+    end
+  end
+
+  # ユーザー認証
+  def ensure_correct_user
+    food_regist = FoodRegist.find(params[:id])
+    if current_user.id != food_regist.user_id
+      redirect_to my_page_path
     end
   end
 

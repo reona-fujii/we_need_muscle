@@ -8,10 +8,10 @@ class PostFood < ApplicationRecord
 
   validates :name, presence: true
   validates :introduction, presence: true
-  validates :calorie, presence: true
-  validates :protain, presence: true
-  validates :fat, presence: true
-  validates :carbon, presence: true
+  validates :calorie, presence: true, numericality: {only_integer: true}
+  validates :protain, presence: true, numericality: {only_integer: true}
+  validates :fat, presence: true, numericality: {only_integer: true}
+  validates :carbon, presence: true, numericality: {only_integer: true}
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

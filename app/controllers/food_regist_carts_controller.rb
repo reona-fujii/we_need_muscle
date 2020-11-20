@@ -1,5 +1,6 @@
 class FoodRegistCartsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   # 食事登録カートに追加する
   def create
     food_regist_cart = FoodRegistCart.new(food_regist_cart_params)

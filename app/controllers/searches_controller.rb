@@ -1,7 +1,9 @@
 class SearchesController < ApplicationController
+  before_action :authenticate_user!
 
   # 検索機能
   def search
+    @food_regist_cart = FoodRegistCart.new
     @range = params[:range]
     word = params[:word]
     if @range == '1'

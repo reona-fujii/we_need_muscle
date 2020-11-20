@@ -1,5 +1,6 @@
 class FoodRegistShowsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   # 食事登録編集画面で食事を削除する
   def destroy
     food_regist = FoodRegist.find(params[:food_regist_id])
