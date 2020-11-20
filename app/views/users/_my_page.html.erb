@@ -1,20 +1,39 @@
 <div class ="container">
   <div class="mx-auto">
     <h2 class="my-5" id="page-title">マイページ</h2>
-    <div class="text-right">
-      <%= link_to 'プロフィール編集', users_my_page_edit_path(current_user), class: 'btn btn-success' %>
+    <div>
+      <div class="text-center my-5 p-3 w-25" style="background-color: #EEEEEE; border-radius: 20px;">
+        <div>
+        <%= attachment_image_tag current_user, :profile_image, size: "50x50", fallback: "no_image.jpg", style: "border-radius: 20px;" %>
+        <%= current_user.last_name %>さん
+        </div>
+        <div>
+          <%= link_to 'プロフィール編集', users_my_page_edit_path(current_user), class: 'btn btn-success mt-2' %>
+        </div>
+      </div>
+      <div>
+        <%= form_with model:@weight_regist, url: weight_regist_path, local: true do |f| %>
+        <div class ="w-25">
+          <%= f.label :day, class: 'control-label' %>
+          <%= f.date_field :day, class: 'form-control' %>
+        </div>
+          <%= f.label :weight, class: 'control-label' %>
+          <%= f.text_field :weight, class: 'form-control' %>
+          <%= f.submit '登録', class: 'btn btn-success' %>
+        <% end %>
+      </div>
     </div>
     <!--目標値-->
     <div class="my-5 target">
       <h4 class="text-center">1日の消費カロリーとマクロ栄養素の目標値</h4>
-      <% if current_user.select_setting == "設定しない" %>
+      <% if current_user.select_setting == "no_setting" %>
       <div class="my-3">
         <h5 class="text-center">目標値は設定されていません</h5>
         <div class="text-center">
           <%= link_to '目標値を設定する', users_my_page_edit_path(current_user), class: 'btn btn-success' %>
         </div>
       </div>
-      <% elsif current_user.select_setting == "自動で設定する" %>
+      <% elsif current_user.select_setting == "auto_setting" %>
       <table class='table text-center table-bordered w-75 mx-auto table-light' style='table-layout: fixed;'>
         <thead>
           <tr>
@@ -33,7 +52,8 @@
           </tr>
         </tbody>
       </table>
-      <% else current_user.select_setting == "自分で設定する" %>
+      <div class="text-right" style="font-size: 5px;">※「自動で設定する」の場合、ハリス・ベネディクト方程式(改良版)を使って基礎代謝量・1日の消費カロリーを計算しています。</div>
+      <% else current_user.select_setting == "manual_setting" %>
       <table class='table text-center table-bordered w-75 mx-auto table-light' style='table-layout: fixed;'>
         <thead>
           <tr>
@@ -114,6 +134,15 @@
       <% end %>
       <% unless sum == 0 %>
         総カロリー：<%= link_to sum, users_my_page_show_path(date) %>kcal
+      <% end %>
+    <% end %>
+
+     <%= month_calendar events: callender_weight_regists do |date, callender_weight_regists| %>
+      <%= date.day %>
+      <% callender_weight_regists.each do |callender_weight_regist| %>
+        <div>
+          <%= callender_weight_regist.weight %>kg
+        </div>
       <% end %>
     <% end %>
   </div>

@@ -1,0 +1,3 @@
+$("#post_food_<%= @post_food.id %> .comments-count").html("コメント数: <%= @post_food.food_comments.count %>");
+$("#food_comments_index").html("<%= j(render 'food_comments/index', post_food: @post_food, food_comment: @food_comment) %>");
+$("#food_comment_comment").val("");

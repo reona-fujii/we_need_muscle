@@ -19,22 +19,27 @@
         <%= f.label :email, class: "col-sm-3 control-label text-right offset-sm-1" %>
         <%= f.text_field :email, autofocus: true, class: "form-control col-sm-5" %>
       </div>
-    <h5 class="my-5">1日の消費カロリーとマクロ栄養素の設定について</h5>
-<!--設定しないフォーム-->
-    <div class ="row">
-      <div class="form-group col-sm-2">
-        <div>
-          <%= f.radio_button :select_setting, "設定しない" %>設定しない
-        </div>
+      <div class="text-right">
+      <%= link_to 'パスワード変更と退会', edit_user_registration_path, class: "btn btn-primary" %>
       </div>
+      <div class="text-center">
+        <h4 class="my-5 my-page-setting">1日の消費カロリーとマクロ栄養素の設定について</h4>
+      </div>
+    <div class ="row" style="justify-content: center;">
+<!--設定しないフォーム-->
+        <div class="form-group col-sm-2">
+          <div>
+            <%= f.radio_button :select_setting, "no_setting" %>設定しない
+          </div>
+        </div>
 <!--自動で設定するフォーム-->
       <div class="form-group col-sm-4 auto-set mr-3">
-        <%= f.radio_button :select_setting, "自動で設定する" %>自動で設定する
+        <%= f.radio_button :select_setting, "auto_setting" %>自動で設定する
         <div>
           <%= f.label :sex %>
-          <%= f.radio_button :sex, "男性" %>男性
-          <%= f.radio_button :sex, "女性" %>女性
-          <%= f.radio_button :sex, "その他" %>その他
+          <%= f.radio_button :sex, "male" %>男性
+          <%= f.radio_button :sex, "female" %>女性
+          <%= f.radio_button :sex, "other" %>その他
         </div>
         <div class ="d-flex my-3">
           <%= f.label :weight, class: "control-label text-right" %>
@@ -46,7 +51,7 @@
         </div>
         <div class ="d-flex mb-3">
           <%= f.label :exercise, class: "control-label mr-2" %>
-          <%= f.select :exercise, User.exercises.keys, {"なにもしていない": 0, "週に1〜2回": 1, "週に2〜3回": 2, "週に3〜5": 3, "毎日": 4}, value: @user.exercise %>
+          <%= f.select :exercise, User.exercises.keys.map {|k| [I18n.t("enums.user.exercise.#{k}"), k]}, value: @user.exercise %>
         </div>
         <div class ="d-flex">
           <%= f.label :age, class: "control-label" %>
@@ -55,7 +60,7 @@
       </div>
 <!--自分で設定するフォーム-->
       <div class="form-group col-sm-4 manual-set">
-         <%= f.radio_button :select_setting, "自分で設定する" %>自分で設定する
+         <%= f.radio_button :select_setting, "manual_setting" %>自分で設定する
          <div class ="d-flex my-3">
           <%= f.label :calorie, class: "control-label mr-2" %>
           <%= f.text_field :calorie, class: "form-control col-sm-3" %><span id="unit">　kcal</span>
