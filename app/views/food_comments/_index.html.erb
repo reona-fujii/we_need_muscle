@@ -47,7 +47,9 @@
         <%= food_comment.comment %>
       </span>
       <% if food_comment.user_id == current_user.id %>
-        <%= link_to '削除', post_food_food_comment_path(food_comment.post_food_id, food_comment), method: :delete, remote: true, class: "btn btn-danger", style: "height: 40px;" %>
+        <%= link_to post_food_food_comment_path(food_comment.post_food_id, food_comment), method: :delete, remote: true, class: "btn btn-danger", style: "height: 40px;" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     </div>
     <% end %>

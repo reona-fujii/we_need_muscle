@@ -4,10 +4,8 @@ class UsersController < ApplicationController
 
   # マイページ画面
   def my_page
-    @weight_regist = WeightRegist.new
     # カレンダーの定義
     @callender_food_regists = FoodRegist.where(user_id: current_user)
-    @callender_weight_regists = WeightRegist.where(user_id: current_user)
     #今日の日付
     @day_params = Date.today
     # 今日の食事内容のレコード定義
@@ -19,10 +17,8 @@ class UsersController < ApplicationController
 
   # 特定の日のマイページ画面
   def my_page_show
-    @weight_regist = WeightRegist.new
     #カレンダーの定義
     @callender_food_regists = FoodRegist.where(user_id: current_user)
-    @callender_weight_regists = WeightRegist.where(user_id: current_user)
     #押下されたカレンダーの日付
     @day_params = params[:format]
     # 特定の日の食事内容のレコード定義
@@ -100,10 +96,6 @@ class UsersController < ApplicationController
         render :my_page_edit
       end
     end
-  end
-
-  # 退会する
-  def destroy
   end
 
   # ユーザー認証

@@ -18,7 +18,20 @@
 //= require turbolinks
 //= require_tree .
 
+// トップ画面のアニメーション
+$(window).scroll(function() {
+ $(".animation .top-intro").each(function() {
+  const position = $(this).offset().top;
+  const scroll = $(window).scrollTop();
+  const windowHeight = $(window).height();
+  if (scroll > position - windowHeight) {
+   $(this).addClass("active");
+  }
+ });
+});
 
+
+// 評価機能
 /*!
  * Raty - A Star Rating Plugin
  *
@@ -29,7 +42,6 @@
  * version: 3.0.0
  *
  */
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
