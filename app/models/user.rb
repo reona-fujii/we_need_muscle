@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_many :food_regist_carts, dependent: :destroy
   has_many :post_foods
   has_many :food_regists, dependent: :destroy
-  has_many :weight_regists, dependent: :destroy
   attachment :profile_image
 
   with_options on: :step1 do

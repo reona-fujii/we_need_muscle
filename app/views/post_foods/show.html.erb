@@ -59,8 +59,12 @@
     </div>
     <div class="mt-5">
       <% if @post_food.user_id == current_user.id %>
-        <%= link_to '編集する', edit_post_food_path(@post_food), class: "btn btn-success mx-5" %>
-        <%= link_to '投稿を削除する', post_food_path(@post_food), method: :delete, class: "btn btn-danger" %>
+        <%= link_to edit_post_food_path(@post_food), class: "btn btn-success mx-5" do %>
+          <i class="far fa-edit"></i>編集する
+        <% end %>
+        <%= link_to post_food_path(@post_food), method: :delete, class: "btn btn-danger" do %>
+          <i class="fas fa-trash-alt"></i> 投稿を削除する
+        <% end %>
       <% end %>
     </div>
   </div>
