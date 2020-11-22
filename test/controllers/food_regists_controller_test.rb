@@ -25,5 +25,4 @@ class FoodRegistsControllerTest < ActionDispatch::IntegrationTest
     get food_regists_update_url
     assert_response :success
   end
-
 end

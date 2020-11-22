@@ -9,5 +9,4 @@ class FoodRegistShow < ApplicationRecord
   def start_time
     food_regist.day
   end
-
 end

@@ -52,6 +52,9 @@
 - simple_calendar
 - dotenv-rails
 - lightbox2
+- rubocop
+- rubocop-performance
+- rubocop-rails
 
 主な機能
 - ユーザー登録機能
@@ -76,6 +79,5 @@ https://docs.google.com/spreadsheets/d/12PB1fxQaborREhhHE3czWXjQwhirstfaHboRhVc7
 
 ## 使用素材
 
-- お名前.com https://www.onamae.com/
 - ICOON MONO
 - O-DAN

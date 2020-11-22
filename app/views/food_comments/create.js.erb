@@ -1,7 +1,6 @@
 $("#post_food_<%= @post_food.id %> .comments-count").html("コメント数: <%= @post_food.food_comments.count %>");
 $("#food_comments_index").html("<%= j(render 'food_comments/index', post_food: @post_food, food_comment: @food_comment) %>");
 <% if @error_food_comment != nil %>
-<% binding.pry %>
   $("#error_explanation").html("<%= j(render 'food_comments/errors', resource: @error_food_comment) %>");
 <% end %>
 $("#food_comment_comment").val("");
