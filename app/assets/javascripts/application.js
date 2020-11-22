@@ -30,7 +30,6 @@ $(window).scroll(function() {
  });
 });
 
-
 // 評価機能
 /*!
  * Raty - A Star Rating Plugin
@@ -801,3 +800,4 @@ $(window).scroll(function() {
     return Raty;
   })();
 }));
+

@@ -5,10 +5,9 @@ class FoodRegist < ApplicationRecord
   validates :day, presence: true
   validates :timing, presence: true
 
-  enum timing: {朝食:0, 昼食:1, 夕食:2, 間食:3}
+  enum timing: {朝食: 0, 昼食: 1, 夕食: 2, 間食: 3}
 
   def start_time
     self.day
   end
-
 end

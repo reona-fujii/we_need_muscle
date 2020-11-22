@@ -1,6 +1,6 @@
 class FoodRegistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, {only: [:show, :edit, :update, :destroy]}
+  before_action :ensure_correct_user, {only: [:show, :edit, :update]}
   # 食事登録画面
   def new
     @food_regist_carts = FoodRegistCart.where(user_id: current_user.id)
@@ -61,8 +61,8 @@ class FoodRegistsController < ApplicationController
   end
 
   private
+
   def food_regist_params
     params.require(:food_regist).permit(:day, :timing)
   end
-
 end

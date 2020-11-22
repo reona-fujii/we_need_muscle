@@ -62,6 +62,7 @@ class PostFoodsController < ApplicationController
   end
 
   private
+
   def post_food_params
     params.require(:post_food).permit(:name, :introduction, :food_image, :calorie, :protain, :fat, :carbon)
   end

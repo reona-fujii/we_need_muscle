@@ -10,5 +10,4 @@ class FoodCommentsControllerTest < ActionDispatch::IntegrationTest
     get food_comments_destroy_url
     assert_response :success
   end
-
 end

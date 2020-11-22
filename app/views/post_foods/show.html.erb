@@ -8,7 +8,7 @@
   </div>
 <!--投稿情報-->
   <div class="row mx-2">
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-xs-12">
       <%= attachment_image_tag @post_food.user, :profile_image, size: "50x50", fallback: "no_image.jpg", style: "border-radius: 20px;" %>
       <%= link_to users_show_path(@post_food.user), class: "text-left px-0" do %>
       <%= @post_food.user.last_name %>さんの投稿
@@ -17,7 +17,7 @@
         <%= attachment_image_tag @post_food, :food_image, size: "400x400", fallback: "No_Image.jpg", style: "border-radius: 20px;" %>
       </div>
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-5 col-xs-12">
       <div class ="my-3">
         <%= form_with model:@food_regist_cart, url: food_regist_carts_path, local: true do |f| %>
         <%= f.hidden_field :post_food_id, :value => @post_food.id %>

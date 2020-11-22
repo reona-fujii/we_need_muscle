@@ -14,11 +14,11 @@ class PostFood < ApplicationRecord
   validates :carbon, presence: true, numericality: {only_integer: true}
 
   def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+    favorites.exists?(user_id: user.id)
+    # where(user_id: user.id).exists?
   end
 
   def self.search(word)
     self.where(['name LIKE ?', "%#{word}%"])
   end
-
 end

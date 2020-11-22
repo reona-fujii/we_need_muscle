@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @font-face {
   font-family: 'MATURASC';
-  src: font-url('MATURASC_1.truetype'),
-       font-url('MATURASC_1.woff');
-}
+  src: font-url('MATURASC_1.woff')
+      // font-url('MATURASC_1.ttf')
+;}
 .top-background {
   background-image: image-url("top-background.jpg");
   background-size: cover;
@@ -22,7 +22,10 @@
   filter: none;
   position: absolute;
   top: 300px;
-  left: 300px;
+  // left: 300px;
+  right: 0;
+  left: 0;
+  margin: auto;
 }
 
 .top-image {

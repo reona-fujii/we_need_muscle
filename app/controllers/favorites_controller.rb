@@ -24,9 +24,10 @@ class FavoritesController < ApplicationController
     favorite.destroy
     # redirect_to post_food_path(post_food)
   end
+
   private
+
   def set_post_food
     @post_food = PostFood.find(params[:post_food_id])
   end
-
 end
