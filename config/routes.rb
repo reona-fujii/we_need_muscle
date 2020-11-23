@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: 'password'
-  devise_scope :user do
-    get 'users/password/edit', to: 'devise/password#edit', as: :edit_user_password
-    patch 'users/password', to: 'devise/password#update'
-    put 'users/password', to: 'devise/password#update'
-    get 'users/password/new', to: 'devise/password#new', as: :new_user_password
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # devise_for :users, skip: 'password'
+  devise_for :users, skip: 'password', :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
+  }
+
   # ユーザー
   get 'users/my_page', to: 'users#my_page', as: 'my_page'
   get 'users/my_page_edit', to: 'users#my_page_edit'
