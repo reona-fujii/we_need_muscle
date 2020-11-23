@@ -16,11 +16,6 @@
  */
 @import "bootstrap";
 
-// body{
-//   padding: 0;
-//   margin: 0;
-//   height: 100%;
-// }
 body {
   margin: 0;
   display: flex;
@@ -36,10 +31,6 @@ body {
   position: absolute;
 }
 #header {
-  // background: linear-gradient(45deg, white, white);
-  // position: sticky;
-  // position: -webkit-sticky;
-  // top: 0;
   box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
 }
 
