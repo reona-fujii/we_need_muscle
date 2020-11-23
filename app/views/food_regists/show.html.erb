@@ -1,2 +1,62 @@
-<h1>FoodRegists#show</h1>
-<p>Find me in app/views/food_regists/show.html.erb</p>
+<div class="container">
+  <div class="mx-auto">
+    <h2 class="my-5" id="page-title">食事登録詳細画面</h2>
+    <% unless @food_regist_shows.present? %>
+      <h3>現在登録された食事はありません。</h3>
+    <% else %>
+<!--日付欄-->
+    <div class="d-flex my-5">
+      <div class ="w-25 p-3" style="background-color: #CCFFFF; border-radius: 20px;">
+        日付：<%= @food_regist.day %>
+      </div>
+<!--タイミング入力欄-->
+      <div class="ml-5 p-3" style="background-color: #CCFFFF; border-radius: 20px;">
+        <%= @food_regist.timing %>
+      </div>
+    </div>
+<!--食事内容の詳細表示-->
+    <table class='table text-center table-bordered'>
+      <thead>
+        <tr>
+          <td></td>
+          <td>kcal</td>
+          <td>たんぱく質</td>
+          <td>脂質</td>
+          <td>炭水化物</td>
+        </tr>
+      </thead>
+      <% @food_regist_shows.each do |food_regist_show| %>
+      <tbody>
+        <tr>
+          <td class="text-left"><%= food_regist_show.post_food.name %></td>
+          <td><%= food_regist_show.post_food.calorie %></td>
+          <td><%= food_regist_show.post_food.protain %></td>
+          <td><%= food_regist_show.post_food.fat %></td>
+          <td><%= food_regist_show.post_food.carbon %></td>
+          <% end %>
+        </tr>
+        <tfoot>
+          <tr>
+            <td>合計</td>
+            <td>
+              <%= @food_regist_shows.aggregate(:calorie) %>
+            </td>
+            <td>
+              <%= @food_regist_shows.aggregate(:protain) %>
+            </td>
+            <td>
+              <%= @food_regist_shows.aggregate(:fat) %>
+            </td>
+            <td>
+              <%= @food_regist_shows.aggregate(:carbon) %>
+            </td>
+          </tr>
+        </tfoot>
+      </tbody>
+    </table>
+    <div>
+      <%= link_to '編集する', edit_food_regist_path(@food_regist), class: "btn btn-success d-block mx-auto btn-lg my-5 w-25" %>
+    </div>
+  <% end %>
+  </div>
+</div>

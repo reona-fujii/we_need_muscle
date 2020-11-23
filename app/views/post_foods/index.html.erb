@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="my-5">投稿一覧</h2>
+  <h2 class="my-5" id="page-title">投稿一覧</h2>
   <%= render "searches/form" %>
-  <%= render "post_foods/index", post_foods: @post_foods %>
+  <%= render "post_foods/index", post_foods: @post_foods, food_regist_cart: @food_regist_cart %>
 </div>

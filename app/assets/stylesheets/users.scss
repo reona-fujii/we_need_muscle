@@ -11,3 +11,37 @@
   padding: 10px;
   border-radius: 20px;
 }
+
+.target {
+  background-color: #FFFFCC;
+  border-radius: 20px;
+  padding: 10px;
+}
+.food_regist {
+  background-color: #DDFFFF;
+  border-radius: 20px;
+  padding: 10px;
+}
+.my-page-setting {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+  font-weight: bold;
+}
+
+.my-page-setting:before, .my-page-setting:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+
+.my-page-setting:before {
+  left: 0;
+}
+.my-page-setting:after {
+  right: 0;
+}

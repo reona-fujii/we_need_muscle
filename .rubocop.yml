@@ -1,0 +1,123 @@
+inherit_from: .rubocop_todo.yml
+# 追加した規約ファイル読込
+require:
+  - rubocop-rails
+
+AllCops:
+  # Rubyバージョン指定
+  TargetRubyVersion: 2.6.3
+  # 除外
+  Exclude:
+    - 'config.ru'
+    - 'environments/**/*'
+    - 'puma.rb'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'test/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Documentation:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# ハッシュの記法
+HashSyntax:
+  EnforcedStyle: ruby19
+
+# ハッシュに半角スペースを付けない
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+# %w() と %i() が見分けづらいので Style/WordArray と合わせて無効に。
+# 書き手に委ねるという意味で、Enabled: false にしています。使っても良い。
+Style/SymbolArray:
+  Enabled: false
+
+# 空メソッドの場合だけ1行で書かなければいけない理由が無い
+# 「セミコロンは使わない」に寄せた方がルールがシンプル
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/GuardClause:
+  MinBodyLength: 5
+
+Style/CaseLikeIf:
+  Exclude:
+    - 'app/controllers/users_controller.rb'
+    - 'app/models/user.rb'
+
+Lint/Void:
+  Exclude:
+    - 'app/controllers/users_controller.rb'
+    - 'app/models/user.rb'
+
+Style/StringLiterals:
+  Exclude:
+    - 'Gemfile'
+    - 'config/environments/production.rb'
+    - 'config/puma.rb'
+    - 'db/migrate/20201105061624_devise_create_users.rb'
+    - 'db/migrate/20201121031743_records.rb'
+    - 'test/application_system_test_case.rb'
+    - 'test/controllers/favorites_controller_test.rb'
+    - 'test/controllers/food_comments_controller_test.rb'
+    - 'test/controllers/food_regist_carts_controller_test.rb'
+    - 'test/controllers/food_regists_controller_test.rb'
+    - 'test/controllers/post_foods_controller_test.rb'
+    - 'test/controllers/users_controller_test.rb'
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+Style/GlobalStdStream:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb'
+    - 'config/puma.rb'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/application_controller_renderer.rb'
+
+Lint/ElseLayout:
+  Exclude:
+    - 'app/models/user.rb'
+
+Lint/ShadowingOuterLocalVariable:
+  Exclude:
+    - 'app/controllers/homes_controller.rb'
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 60
+
+AllCops:
+    NewCops: enable
