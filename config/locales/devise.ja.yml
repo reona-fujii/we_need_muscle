@@ -80,3 +80,14 @@ ja:
               invalid: "は有効でありません。"
             password_confirmation:
               confirmation: "が内容とあっていません。"
+        post_food:
+          attributes:
+            carbon:
+              not_an_integer: "は整数で入力してください"
+            fat:
+              not_an_integer: "は整数で入力してください"
+            protain:
+              not_an_integer: "は整数で入力してください"
+            calorie:
+              not_an_integer: "は整数で入力してください"
+
