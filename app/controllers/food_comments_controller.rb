@@ -4,12 +4,13 @@ class FoodCommentsController < ApplicationController
 
   # コメントを投稿する
   def create
-    @food_comment_test = current_user.food_comments.new(food_comment_params)
-    @food_comment_test.post_food_id = @post_food.id
-    @error_food_comment = if @food_comment_test.save
+    food_comment = current_user.food_comments.new(food_comment_params)
+    food_comment.post_food_id = @post_food.id
+    food_comment.score = Language.get_data(food_comment_params[:comment])
+    @error_food_comment = if food_comment.save
                             nil
                           else
-                            @food_comment_test
+                            food_comment
                           end
   end
 
@@ -28,6 +29,6 @@ class FoodCommentsController < ApplicationController
   private
 
   def food_comment_params
-    params.require(:food_comment).permit(:comment, :rate)
+    params.require(:food_comment).permit(:comment)
   end
 end

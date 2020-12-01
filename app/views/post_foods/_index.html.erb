@@ -1,9 +1,16 @@
 <div class="row">
   <% post_foods.each do |post_food| %>
   <div class="col-lg-3 col-md-4 col-sm-6" id="post_food_flame">
+    <div class="d-flex">
     <%= link_to users_show_path(post_food.user), class: "text-left px-0" do %>
     <%= post_food.user.last_name %>さんの投稿
     <% end %>
+    <% if post_food.food_comments.present? %>
+      <% if post_food.food_comments.average(:score) > 0.5 %>
+        <h5 class="ml-auto p-1" style="color: red; background-color: yellow; border-radius: 20px;">高評価</h5>
+      <% end %>
+    <% end %>
+    </div>
     <h6>食事名：<%= post_food.name.truncate(20) %></h6>
     <div>
       <%= link_to post_food_path(post_food) do %>
