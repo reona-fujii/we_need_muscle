@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_031743) do
+ActiveRecord::Schema.define(version: 2020_11_30_070249) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2020_11_21_031743) do
     t.integer "user_id", null: false
     t.integer "post_food_id", null: false
     t.text "comment", null: false
-    t.float "rate", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score", precision: 3, scale: 2
   end
 
   create_table "food_regist_carts", force: :cascade do |t|
@@ -86,6 +86,14 @@ ActiveRecord::Schema.define(version: 2020_11_21_031743) do
     t.integer "select_setting", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "weight_regists", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.date "day", null: false
+    t.float "weight", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

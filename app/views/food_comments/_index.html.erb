@@ -8,19 +8,18 @@
       【総合評価】
       <% if post_food.food_comments.count == 0 %>
         <span>なし</span>
+      <% elsif post_food.food_comments.average(:score).round(2) > 0.7 %>
+        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐⭐️⭐️⭐️
+      <% elsif post_food.food_comments.average(:score).round(2) > 0.5 %>
+        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐⭐️⭐️️
+      <% elsif post_food.food_comments.average(:score).round(2) > 0.3 %>
+        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐⭐️
+      <% elsif post_food.food_comments.average(:score).round(2) > 0 %>
+        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐
+      <% elsif post_food.food_comments.average(:score).round(2) > -0.3 %>
+        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️
       <% else %>
-      <%= post_food.food_comments.average(:rate).round(1) %>点<span id="star-average" class="ml-3" ></span>
-      <script>
-          $('#star-average').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= post_food.food_comments.average(:rate).round(1) %>,
-          });
-      </script>
+        <%= post_food.food_comments.average(:score).round(2) %>点
       <% end %>
     </div>
     <% post_food.food_comments.each do |food_comment| %>
@@ -31,21 +30,24 @@
           <%= food_comment.user.last_name %>さん
         </div>
       </div>
-      <span id='comment'>
-        【評価】<%= food_comment.rate %>点<span id="star-rate-<%= food_comment.id %>" class="ml-3"></span>
-        <script>
-          $('#star-rate-<%= food_comment.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= food_comment.rate %>,
-          });
-          </script></br>
+      <div id='comment'>
+        <% if food_comment.score > 0.7 %>
+        【評価】<%= food_comment.score %>点 ⭐️⭐️⭐️⭐️⭐
+        <% elsif food_comment.score > 0.5 %>
+        【評価】<%= food_comment.score %>点 ⭐️⭐️⭐️⭐️
+        <% elsif food_comment.score > 0.3 %>
+        【評価】<%= food_comment.score %>点 ⭐️⭐️⭐
+        <% elsif food_comment.score > 0 %>
+        【評価】<%= food_comment.score %>点 ⭐️⭐
+        <% elsif food_comment.score > -0.3 %>
+        【評価】<%= food_comment.score %>点 ⭐
+        <% else %>
+        【評価】<%= food_comment.score %>点
+        <% end %>
+        <div>
         <%= food_comment.comment %>
-      </span>
+        </div>
+      </div>
       <% if food_comment.user_id == current_user.id %>
         <%= link_to post_food_food_comment_path(food_comment.post_food_id, food_comment), method: :delete, remote: true, class: "btn btn-danger", style: "height: 40px;" do %>
           <i class="fas fa-trash-alt"></i>
@@ -61,10 +63,6 @@
     <div id="error_explanation"></div>
     <div class="form-group">
       <div>
-        <div class="field d-flex mb-2" id="star">
-          <%= f.label :rate, class: "mr-3" %>
-          <%= f.hidden_field :rate, id: :review_star %>
-        </div>
         <%= f.text_area :comment, rows:'2', class: "form-control",placeholder: "コメントをここに", size: "100x2" %>
       </div>
       <div class="text-right">
@@ -74,12 +72,3 @@
     <% end %>
   </div>
 </div>
-
-<script>
-$('#star').raty({
-  size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  scoreName: 'food_comment[rate]'
-});
-</script>
