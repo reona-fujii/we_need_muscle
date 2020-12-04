@@ -9,17 +9,17 @@
       <% if post_food.food_comments.count == 0 %>
         <span>なし</span>
       <% elsif post_food.food_comments.average(:score).round(2) > 0.7 %>
-        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐⭐️⭐️⭐️
+        <%= post_food.food_comments.average(:score).round(2) * 10 %>点 ⭐️⭐⭐️⭐️⭐️
       <% elsif post_food.food_comments.average(:score).round(2) > 0.5 %>
-        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐⭐️⭐️️
+        <%= post_food.food_comments.average(:score).round(2) * 10 %>点 ⭐️⭐⭐️⭐️️
       <% elsif post_food.food_comments.average(:score).round(2) > 0.3 %>
-        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐⭐️
+        <%= post_food.food_comments.average(:score).round(2) * 10 %>点 ⭐️⭐⭐️
       <% elsif post_food.food_comments.average(:score).round(2) > 0 %>
-        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️⭐
+        <%= post_food.food_comments.average(:score).round(2) * 10 %>点 ⭐️⭐
       <% elsif post_food.food_comments.average(:score).round(2) > -0.3 %>
-        <%= post_food.food_comments.average(:score).round(2) %>点 ⭐️
+        <%= post_food.food_comments.average(:score).round(2) * 10 %>点 ⭐️
       <% else %>
-        <%= post_food.food_comments.average(:score).round(2) %>点
+        <%= post_food.food_comments.average(:score).round(2) * 10 %>点
       <% end %>
     </div>
     <% post_food.food_comments.each do |food_comment| %>
@@ -32,17 +32,17 @@
       </div>
       <div id='comment'>
         <% if food_comment.score > 0.7 %>
-        【評価】<%= food_comment.score %>点 ⭐️⭐️⭐️⭐️⭐
+        【評価】<%= food_comment.score * 10 %>点 ⭐️⭐️⭐️⭐️⭐
         <% elsif food_comment.score > 0.5 %>
-        【評価】<%= food_comment.score %>点 ⭐️⭐️⭐️⭐️
+        【評価】<%= food_comment.score * 10 %>点 ⭐️⭐️⭐️⭐️
         <% elsif food_comment.score > 0.3 %>
-        【評価】<%= food_comment.score %>点 ⭐️⭐️⭐
+        【評価】<%= food_comment.score * 10 %>点 ⭐️⭐️⭐
         <% elsif food_comment.score > 0 %>
-        【評価】<%= food_comment.score %>点 ⭐️⭐
+        【評価】<%= food_comment.score * 10 %>点 ⭐️⭐
         <% elsif food_comment.score > -0.3 %>
-        【評価】<%= food_comment.score %>点 ⭐
+        【評価】<%= food_comment.score * 10 %>点 ⭐
         <% else %>
-        【評価】<%= food_comment.score %>点
+        【評価】<%= food_comment.score * 10 %>点
         <% end %>
         <div>
         <%= food_comment.comment %>
