@@ -36,10 +36,6 @@ class UsersController < ApplicationController
     @weight_regist_base = WeightRegist.where(user_id: current_user).average(:weight)
   end
 
-  def share_my_page
-  end
-
-
   # 特定のユーザーの投稿食事一覧画面
   def show
     @user = User.find(params[:id])
@@ -75,7 +71,7 @@ class UsersController < ApplicationController
                               select_setting: user_params[:select_setting]}
       @user.update(selected_user_params)
       if @user.valid?(:step1)
-         redirect_to my_page_path
+        redirect_to my_page_path
       else
         render :my_page_edit
         @user.select_setting = 'no_setting'
