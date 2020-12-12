@@ -34,8 +34,7 @@ URL:<http://we-need-muscle.work/>
 # 設計書
 
 ## ER図
-<img width="700" alt="ER図" src="https://user-images.githubusercontent.com/69830905/100492820-7e9ab400-3173-11eb-9cc6-7d35fa82b838.png">
-
+<img width="700" alt="ER図" src="https://user-images.githubusercontent.com/69830905/100948613-998e6f00-354b-11eb-8bb7-bb2884056220.png">
 ## 開発環境
 
 - OS：Linux(CentOS)
@@ -60,6 +59,9 @@ URL:<http://we-need-muscle.work/>
 - rubocop
 - rubocop-performance
 - rubocop-rails
+- chartkick
+- rspec-rails
+- factory_bot_rails
 
 主な機能
 - ユーザー登録機能
@@ -72,6 +74,7 @@ URL:<http://we-need-muscle.work/>
 - レビュー機能
 - お気に入り機能
 - カレンダー機能
+- チャート機能
 - 検索機能
   - ユーザー検索
   - 食事名検索

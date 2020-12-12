@@ -1,8 +1,11 @@
 <div class ="container">
   <div class="mx-auto">
     <h2 class="my-5" id="page-title">マイページ</h2>
-    <div>
-      <div class="text-center my-5 p-3 w-25" style="background-color: #EEEEEE; border-radius: 20px;">
+    <% if weight_regist_error.present? %>
+    <%= render "layouts/errors", resource: weight_regist_error %>
+    <% end %>
+    <div class="d-flex">
+      <div class="text-center p-3 w-25" style="background-color: #EEEEEE; border-radius: 20px;">
         <div>
         <%= attachment_image_tag current_user, :profile_image, size: "50x50", fallback: "no_image.jpg", style: "border-radius: 20px;" %>
         <%= current_user.last_name %>さん
@@ -11,6 +14,23 @@
           <%= link_to users_my_page_edit_path(current_user), class: 'btn btn-success mt-2' do %>
             <i class="fas fa-user-edit"></i>プロフィール編集
           <% end %>
+        </div>
+      </div>
+      <div>
+        <div class="text-center py-4 ml-3" style="background-color: #EEEEEE; border-radius: 20px;">
+          <%= form_with model:weight_regist, url: weight_regist_path, local: true do |f| %>
+          <div>
+            <%= f.label '今日の体重', class: 'control-label' %>
+            <div class="w-50 d-flex offset-3 w-50">
+              <%= f.text_field :weight, class: 'form-control', size: "30x10" %><span id="unit">kg</span>
+              <% if WeightRegist.where(user_id: current_user, day: Date.today).present? %>
+                <%= f.submit '登録済み', class: 'btn btn-success ml-3', disabled: true %>
+              <% else %>
+                <%= f.submit '登録', class: 'btn btn-success ml-3' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
         </div>
       </div>
     </div>
@@ -67,7 +87,7 @@
     </div>
     <!--食事内容-->
     <div class="my-5 food_regist">
-      <h4 class="text-center"><%= day_params.to_datetime.strftime('%Y年%-m月%-d日') %>の食事内容</h4>
+      <h4 class="text-center"><%= day_params.to_time.strftime('%Y年%-m月%-d日') %>の食事内容</h4>
       <table class='table text-center table-bordered table-light' style='table-layout: fixed;'>
         <thead>
           <tr>
@@ -126,6 +146,13 @@
       <% unless sum == 0 %>
         総カロリー：<%= link_to sum, users_my_page_show_path(date) %>kcal
       <% end %>
+    <% end %>
+    <% if @weight_regists.present? %>
+    <div>
+      <h4 class="text-center"><%= Date.today.month %>月の体重推移</h4>
+      <%= line_chart @weight_regists, xmin: Date.today.beginning_of_month, xmax: Date.today.end_of_month,
+          min: (@weight_regist_base.ceil - 10), max: (@weight_regist_base.ceil + 10 ), xtitle: "日付", ytitle: "体重(kg)" %>
+    </div>
     <% end %>
   </div>
 </div>

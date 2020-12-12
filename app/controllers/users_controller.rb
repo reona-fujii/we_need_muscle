@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     # 今日の食事内容の合計値レコードの定義
     food_regist = FoodRegist.where(day: Time.zone.today, user_id: current_user).pluck(:id)
     @food_regist_shows = FoodRegistShow.where(food_regist_id: food_regist)
+    # 体重登録
+    @weight_regist = WeightRegist.new
+    @weight_regists = WeightRegist.where(user_id: current_user).pluck(:day, :weight)
+    @weight_regist_base = WeightRegist.where(user_id: current_user).average(:weight)
   end
 
   # 特定の日のマイページ画面
@@ -26,6 +30,10 @@ class UsersController < ApplicationController
     # 特定の日の食事内容の合計値レコードの定義
     food_regist = FoodRegist.where(day: @day_params, user_id: current_user).pluck(:id)
     @food_regist_shows = FoodRegistShow.where(food_regist_id: food_regist)
+    # 体重登録
+    @weight_regist = WeightRegist.new
+    @weight_regists = WeightRegist.where(user_id: current_user).pluck(:day, :weight)
+    @weight_regist_base = WeightRegist.where(user_id: current_user).average(:weight)
   end
 
   # 特定のユーザーの投稿食事一覧画面
@@ -66,6 +74,8 @@ class UsersController < ApplicationController
         redirect_to my_page_path
       else
         render :my_page_edit
+        @user.select_setting = 'no_setting'
+        @user.save
       end
     else
       @user.select_setting == 'manual_setting'
@@ -78,6 +88,8 @@ class UsersController < ApplicationController
         redirect_to my_page_path
       else
         render :my_page_edit
+        @user.select_setting = 'no_setting'
+        @user.save
       end
     end
   end

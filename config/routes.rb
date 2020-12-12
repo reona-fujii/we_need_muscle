@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # devise_for :users, skip: 'password'
-  devise_for :users, skip: 'password', :controllers => {
-    :registrations => 'users/registrations',
-    :sessions => 'users/sessions'
+  devise_for :users, skip: 'password', controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   # ユーザー
@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'about', to: 'homes#about'
   post 'guest', to: 'homes#new_guest'
+
+  # 体重登録
+  post 'weight_regist', to: 'weight_regists#create'
 
   # 検索
   get 'search', to: 'searches#search'

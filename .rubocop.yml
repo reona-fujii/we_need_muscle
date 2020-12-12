@@ -119,5 +119,12 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Max: 60
 
+Metrics/BlockLength:
+  Max: 160
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
 AllCops:
     NewCops: enable

@@ -33,11 +33,13 @@ ja:
       food_regist:
         day: 日付
         timing: どのタイミング?
+      weight_regist:
+        weight: 今日の体重
   enums:
     user:
       exercise:
         do_noting: なにもしていない
         once_or_twice_a_week: 週に1〜2回
-        two_or_three_times_a_week: 週に2〜3
-        three_or_five_times_a_week: 週に3〜5
+        two_or_three_times_a_week: 週に2〜3回
+        three_or_five_times_a_week: 週に3〜5回
         everyday: 毎日
