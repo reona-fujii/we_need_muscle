@@ -14,7 +14,6 @@ class FavoritesController < ApplicationController
     post_food = PostFood.find(params[:post_food_id])
     favorite = current_user.favorites.new(post_food_id: post_food.id)
     favorite.save
-    # redirect_to post_food_path(post_food)
   end
 
   # お気に入りから削除する
@@ -22,7 +21,6 @@ class FavoritesController < ApplicationController
     post_food = PostFood.find(params[:post_food_id])
     favorite = current_user.favorites.find_by(post_food_id: post_food.id)
     favorite.destroy
-    # redirect_to post_food_path(post_food)
   end
 
   private

@@ -17,7 +17,7 @@ module Language
       request = Net::HTTP::Post.new(uri.request_uri)
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
-      return JSON.parse(response.body)['documentSentiment']['score']
+      JSON.parse(response.body)['documentSentiment']['score']
     end
   end
 end

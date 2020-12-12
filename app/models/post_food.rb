@@ -8,14 +8,13 @@ class PostFood < ApplicationRecord
 
   validates :name, presence: true
   validates :introduction, presence: true
-  validates :calorie, presence: true, numericality: {only_integer: true}
-  validates :protain, presence: true, numericality: {only_integer: true}
-  validates :fat, presence: true, numericality: {only_integer: true}
-  validates :carbon, presence: true, numericality: {only_integer: true}
+  validates :calorie, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+  validates :protain, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+  validates :fat, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+  validates :carbon, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
-    # where(user_id: user.id).exists?
   end
 
   def self.search(word)

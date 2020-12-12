@@ -60,6 +60,8 @@ URL:<http://we-need-muscle.work/>
 - rubocop-performance
 - rubocop-rails
 - chartkick
+- rspec-rails
+- factory_bot_rails
 
 主な機能
 - ユーザー登録機能
